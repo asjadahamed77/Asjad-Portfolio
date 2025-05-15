@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme{
+  --color-mainBlueLight: #0e1836;
+  --color-secondBlueLight: #27548A;
+}
+
+@layer utilities {
+  .dark body {
+    background: linear-gradient(to right, #040613, #050714);
+  }
+
+  body {
+    background: white; /* or your light gradient */
+  }
+}
+
+body{
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
