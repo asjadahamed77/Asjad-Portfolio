@@ -6,16 +6,16 @@ import profile from '../assets/profile.png'
 
 const Header = () => {
   return (
-    <div id="home" className="flex flex-col md:flex-row items-center justify-center lg:gap-20 gap-16 p-8 lg:p-16 py-16 ">
-      <div className="max-w-[500px] text-center md:text-left">
+    <div id="home"   className="flex flex-col md:flex-row items-center justify-center lg:gap-20 gap-16 p-8 lg:p-16 lg:py-16">
+      <div className="max-w-[500px] text-center md:text-left pt-12 sm:pt-0">
         <p className="text-secondBlueLight font-medium dark:text-slate-100">
           Hello! I'm
         </p>
-        <h1 className="lg:text-6xl text-4xl text-mainBlueLight mt-4 font-bold dark:text-white">
+        <h1  className="lg:text-6xl text-4xl text-mainBlueLight mt-4 font-bold dark:text-white">
           Asjad <span className="text-secondBlueLight">Ahamed</span>
         </h1>
         <p className="mt-4 text-mainBlueLight/80 dark:text-slate-200 lg:text-xl text-lg">
-          Full-Stack Developer & Software Engineering Student
+        Software Engineer | MERN Stack Developer | Next.js Enthusiast
         </p>
         <p className="mt-4 text-mainBlueLight/80 dark:text-slate-300">
           Building elegant solutions to complex problems with modern

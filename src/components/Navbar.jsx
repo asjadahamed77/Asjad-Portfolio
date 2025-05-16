@@ -81,6 +81,7 @@ const Navbar = () => {
     <div>
       {/* Navbar */}
       <div
+      
         className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-4 px-4 sm:px-8 xl:px-32 transition-all duration-300 ${
           isScrolled
             ? "bg-white/70 dark:bg-[#0F172A]/80 backdrop-blur-md"
@@ -88,13 +89,13 @@ const Navbar = () => {
         }`}
       >
         {/* Logo */}
-        <h1 className="bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-2xl font-bold cursor-pointer">
+        <h1  className="bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-2xl font-bold cursor-pointer">
           AA.
         </h1>
 
         {/* Desktop Nav + Theme Switcher + Resume + Mobile Icon */}
         <div className="text-mainBlueLight dark:text-slate-50 text-sm flex items-center gap-8">
-          <div className="hidden sm:flex items-center space-x-8">
+          <div  className="hidden sm:flex items-center space-x-8">
             {["home", "about", "projects", "skills", "contact"].map((item) => (
               <a
                 key={item}
