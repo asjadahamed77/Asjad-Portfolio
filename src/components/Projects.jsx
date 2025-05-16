@@ -10,7 +10,7 @@ const Projects = () => {
         Projects
         <span className="absolute -bottom-1 left-0 h-1 rounded-full bg-secondBlueLight w-2/5"></span>
       </h1>
-      <div className="my-8  grid grid-cols-3 gap-8 b">
+      <div className="my-8  grid xl:grid-cols-3 gap-8 space-y-4 md:space-y-0 sm:grid-cols-2">
         {projects.map((item, index) => (
           <div key={index} className="bg-slate-100 dark:bg-white/5 p-4 rounded-lg hover:-translate-y-2 transform duration-300">
             <div className="">
