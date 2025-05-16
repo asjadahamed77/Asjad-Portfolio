@@ -64,7 +64,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-[400px] h-auto bg-mainBlueLight/15 rounded-[40px]">
+      <div className="max-w-[400px] h-auto bg-mainBlueLight/20 rounded-[40px]">
         <img src={profile} alt="Profile Image" className="w-full h-full object-cover" />
       </div>
     </div>
