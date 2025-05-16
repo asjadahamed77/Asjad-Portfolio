@@ -1,6 +1,6 @@
 import React from "react";
 import { skills } from "../assets/projects";
-import { p } from "framer-motion/client";
+
 
 const Skills = () => {
   return (
