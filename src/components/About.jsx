@@ -7,7 +7,7 @@ import { LuDownload } from "react-icons/lu";
 
 const About = () => {
   return (
-    <div id="about" className="py-16">
+    <div id="about" className="py-28">
       <h1 className="relative w-fit bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-4xl font-bold ">
         About Me
         <span className="absolute -bottom-1 left-0 h-1 rounded-full bg-secondBlueLight w-2/5"></span>
@@ -71,7 +71,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="hidden xl:block flex-1 ">
+        <div className="hidden xl:block flex-1  ">
           <div className="rounded-full w-40 h-40 overflow-hidden border-4 border-mainBlueLight dark:border-slate-100">
             <img
               src={profile}
