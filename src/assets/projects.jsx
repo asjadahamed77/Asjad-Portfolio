@@ -8,12 +8,19 @@ import { FaCcPaypal } from "react-icons/fa6";
 import { SiCss3 } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 
+import { MdOutlineLanguage } from "react-icons/md";
+import { FaCode } from "react-icons/fa6";
+import { IoCode } from "react-icons/io5";
+import { FaDatabase } from "react-icons/fa6";
+import { PiCodeBlockBold } from "react-icons/pi";
+
 import ajjistore from '../assets/projects/ajji-store.png';
 import adminajjistore from '../assets/projects/admin-ajji-store.png';
 import dtmedicalcentre from '../assets/projects/medical-centre.png'
 import adminmedicalcentre from '../assets/projects/admin-medical-centre.png';
 import servicio from '../assets/projects/servicio.jpeg';
 import fusion from '../assets/projects/fusion-feast.png';
+import { FaUserCog } from "react-icons/fa";
 
 
 export  const projects = [
@@ -266,4 +273,113 @@ export  const projects = [
         live: "https://fusion-feast-frontend.vercel.app/",
 
     },
+]
+
+export const skills = [
+    {
+        category: "Programming Languages",
+        skills: [
+            {
+                skill: "JavaScript",
+            },
+            {
+                skill: "Java",
+            },
+            {
+                skill: "C",
+            },
+            {
+                skill: "TypeScript",
+            },
+            
+        ],
+        icon: <MdOutlineLanguage />
+    },
+    {
+        category: "Frontend Development",
+        skills: [
+            {
+                skill: "React.js",
+            },
+            {
+                skill: "Next.js",
+            },
+            {
+                skill: "HTML",
+            },
+            {
+                skill: "CSS",
+            },
+            {
+                skill: "Tailwind",
+            }
+        ],
+        icon: <FaCode />
+    },
+    {
+        category: "Backend Development",
+        skills: [
+            {
+                skill: "Node.js",
+            },
+            {
+                skill: "Express.js",
+            },
+           
+        ],
+        icon: <IoCode />
+    },
+    {
+        category: "Databases",
+        skills: [
+            {
+                skill: "MongoDB",
+            },
+            {
+                skill: "MySQL",
+            },
+           
+        ],
+        icon: <FaDatabase />
+    },
+    {
+        category: "Tools & Technologies",
+        skills: [
+            {
+                skill: "Git",
+            },
+            {
+                skill: "GitHub",
+            },
+            {
+                skill: "AWS",
+            },
+            {
+                skill: "Cloudinary",
+            },
+            {
+                skill: "Vercel",
+            },
+            {
+                skill: "Postman",
+            },
+            {
+                skill: "Figma",
+            },
+            
+
+           
+        ],
+        icon: <PiCodeBlockBold />
+    },
+    {
+        category: "Soft Skills",
+        skills: [
+            { skill: "Creative Problem Solving" },
+            { skill: "Time Management" },
+            { skill: "Issue Identifying" },
+            { skill: "Creativity" }
+        ],
+        icon: <FaUserCog /> 
+    }
 ]
