@@ -4,18 +4,34 @@ import { RiGraduationCapFill } from "react-icons/ri";
 import { MdWork } from "react-icons/md";
 import profile from "../assets/profile.png";
 import { LuDownload } from "react-icons/lu";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div id="about" className="py-28">
-      <h1 className="relative w-fit bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-4xl font-bold ">
+    <motion.div id="about" 
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: false }}
+    transition={{ duration: 0.8 }}
+    className="pt-28">
+      <motion.h1
+       initial={{ y: -80, opacity: 0 }}
+       whileInView={{ y: 0, opacity: 1 }}
+       viewport={{ once: false }}
+       transition={{ duration: 0.8 }}
+      className="relative w-fit bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-4xl font-bold ">
         About Me
         <span className="absolute -bottom-1 left-0 h-1 rounded-full bg-secondBlueLight w-2/5"></span>
-      </h1>
+      </motion.h1>
 
       <div className="flex flex-col sm:flex-row gap-12">
         <div>
-          <div className="my-8 max-w-[800px] p-4">
+          <motion.div 
+          initial={{ x: -70, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8 }}
+          className="my-8 max-w-[800px] p-4">
             <p className="flex items-center gap-2">
               <HiOutlineClipboardDocumentList className="text-mainBlueLight dark:text-white  text-lg" />
               <span className="text-xl text-mainBlueLight dark:text-white font-medium">
@@ -30,8 +46,13 @@ const About = () => {
               deeply about clean UI/UX. I'm also experienced with Next.js for
               building fast, scalable applications.
             </p>
-          </div>
-          <div className="flex flex-col  sm:flex-row gap-8">
+          </motion.div>
+          <motion.div
+          initial={{ y: 70, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col  sm:flex-row gap-8">
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 dark:border-white/20 dark:bg-white/5">
               <p className="flex items-center  gap-2">
                 <RiGraduationCapFill className="text-mainBlueLight dark:text-white text-lg" />
@@ -69,9 +90,14 @@ const About = () => {
               <p className=" text-sm mt-1">SoftCox</p>
               <p className=" text-sm mt-1">2024 - Present</p>
             </div>
-          </div>
+          </motion.div>
         </div>
-        <div className="hidden xl:block flex-1  ">
+        <motion.div 
+        initial={{ x: 70, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.8 }}
+        className="hidden xl:block flex-1  ">
           <div className="rounded-full w-40 h-40 overflow-hidden border-4 border-mainBlueLight dark:border-slate-100">
             <img
               src={profile}
@@ -92,9 +118,9 @@ const About = () => {
               Download Resume
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

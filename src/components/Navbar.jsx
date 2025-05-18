@@ -4,6 +4,7 @@ import { RiMoonClearLine } from "react-icons/ri";
 import { HiOutlineComputerDesktop } from "react-icons/hi2";
 import { IoMdMenu } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(
@@ -78,18 +79,32 @@ const Navbar = () => {
   };
 
   return (
-    <div>
+    <motion.div 
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.4 }}
+    >
       {/* Navbar */}
-      <div
+      <motion.div
+      initial={{ y: 15, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 60,
+        damping: 12,
+        duration: 0.4,
+      }}
       
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-4 px-4 sm:px-8 xl:px-32 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center  justify-between py-4 px-4 sm:px-8 xl:px-32 transition-all duration-300 ${
           isScrolled
             ? "bg-white/70 dark:bg-[#0F172A]/80 backdrop-blur-md"
             : "bg-transparent"
         }`}
       >
         {/* Logo */}
-        <h1  className="bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-2xl font-bold cursor-pointer">
+        <h1  onClick={() => window.scrollTo(0, 0)}  
+  className="bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-2xl font-bold cursor-pointer">
           AA.
         </h1>
 
@@ -169,7 +184,7 @@ const Navbar = () => {
             My resume
           </a>
         </div>
-      </div>
+      </motion.div>
 
       {/* Mobile Menu */}
       <div
@@ -200,11 +215,9 @@ const Navbar = () => {
           </a>
         </div>
       </div>
-<div className="pb-20">
 
-</div>
      
-    </div>
+    </motion.div>
   );
 };
 

@@ -4,6 +4,7 @@ import { FiGithub, FiLinkedin, FiPhone } from "react-icons/fi";
 import { IoLocationOutline } from "react-icons/io5";
 import { LuMail } from "react-icons/lu";
 import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const form = useRef();
@@ -36,17 +37,37 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="py-16">
-      <h1 className="relative w-fit bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-4xl font-bold ">
+    <motion.div id="contact"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: false }}
+    transition={{ duration: 0.8 }}
+    className="pt-28">
+      <motion.h1
+          initial={{ y: -80, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8 }}
+      className="relative w-fit bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-4xl font-bold ">
         Get in Touch
         <span className="absolute -bottom-1 left-0 h-1 rounded-full bg-secondBlueLight w-2/5"></span>
-      </h1>
-      <p className="mt-3 text-sm max-w-[500px] text-secondBlueLight  dark:text-slate-400">
+      </motion.h1>
+      <motion.p
+          initial={{ y: -80, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8 }}
+      className="mt-3 text-sm max-w-[500px] text-secondBlueLight  dark:text-slate-400">
         Have a question or want to work together? Feel free to drop me a
         message. I'd love to hear from you!
-      </p>
+      </motion.p>
       <div className="flex flex-col lg:flex-row gap-8 mt-8">
-        <div>
+        <motion.div
+            initial={{ x: -80, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8 }}
+        >
           <p className="text-xl font-semibold">Contact Information</p>
           <p className="text-sm text-secondBlueLight dark:text-slate-400 mt-2">
             Fill up the form and I'll get back to you as soon as possible.
@@ -92,10 +113,15 @@ const Contact = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Email Form */}
-        <form ref={form} onSubmit={sendEmail} className="bg-slate-50 border border-slate-200 p-6 rounded-xl h-fit flex-1 shadow dark:bg-white/5 dark:border-white/20">
+        <motion.form ref={form} 
+            initial={{ x: 80, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8 }}
+        onSubmit={sendEmail} className="bg-slate-50 border border-slate-200 p-6 rounded-xl h-fit flex-1 shadow dark:bg-white/5 dark:border-white/20">
           <div className="flex flex-col sm:flex-row gap-4 w-full">
             <div className="flex-1">
               <p className="font-medium ">Your Name</p>
@@ -118,9 +144,9 @@ const Contact = () => {
             {loading ? "Sending..." : "Send Message"}
           </button>
           {success && <p className="text-green-500 mt-3 text-sm">Message sent successfully!</p>}
-        </form>
+        </motion.form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -2,17 +2,38 @@ import React from "react";
 import { projects } from "../assets/projects";
 import { FiGithub } from "react-icons/fi";
 import { FiExternalLink } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   return (
-    <div id="projects" className="py-16">
-      <h1 className="relative w-fit bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-4xl font-bold ">
+    <motion.div id="projects"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: false }}
+    transition={{ duration: 0.8 }}
+    className="pt-28">
+      <motion.h1 
+       initial={{ y: -80, opacity: 0 }}
+       whileInView={{ y: 0, opacity: 1 }}
+       viewport={{ once: false }}
+       transition={{ duration: 0.8 }}
+      className="relative w-fit bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-4xl font-bold ">
         Projects
         <span className="absolute -bottom-1 left-0 h-1 rounded-full bg-secondBlueLight w-2/5"></span>
-      </h1>
-      <div className="my-8  grid xl:grid-cols-3 gap-8 space-y-4 md:space-y-0 sm:grid-cols-2">
+      </motion.h1>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: false }}
+        transition={{ duration: 1.5 }}
+      className="my-8  grid xl:grid-cols-3 gap-8 space-y-4 md:space-y-0 sm:grid-cols-2">
         {projects.map((item, index) => (
-          <div key={index} className="bg-slate-100 dark:bg-white/5 p-4 rounded-lg hover:-translate-y-2 transform duration-300">
+          <motion.div
+          initial={{ y: 70, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8 }}
+          key={index} className="bg-slate-100 dark:bg-white/5 p-4 rounded-lg hover:-translate-y-2 transform duration-300">
             <div className="">
               <img
                 src={item.image}
@@ -64,13 +85,18 @@ const Projects = () => {
                 
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
-      <div className="flex items-center justify-center my-20">
+      </motion.div>
+      <motion.div 
+        initial={{ y: -70, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.8 }}
+      className="flex items-center justify-center mt-20">
         <button className="w-fit px-6 py-2 bg-slate-50 border border-slate-100 rounded-xl text-slate-500 cursor-pointer hover:bg-mainBlueLight hover:text-white duration-300 transition-all dark:bg-mainBlueLight/40 dark:text-slate-400 dark:border-slate-400">More Projects</button>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
