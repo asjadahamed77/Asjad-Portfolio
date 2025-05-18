@@ -15,12 +15,16 @@
   }
 
   body {
-    background: white; /* or your light gradient */
+    background: white; 
   }
 }
 
 body{
   font-family: "Inter", sans-serif;
+ 
+}
+html, body {
+  overflow-x: hidden;
 }
 
 html {
