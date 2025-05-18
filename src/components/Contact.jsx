@@ -1,10 +1,40 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiGithub, FiLinkedin, FiPhone } from "react-icons/fi";
 import { IoLocationOutline } from "react-icons/io5";
 import { LuMail } from "react-icons/lu";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
+  const form = useRef();
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_b8nbtzo",     
+        "template_5tzj0ad",    
+        form.current,
+        "Sc7cUcLnAlRpr-N8L"     
+      )
+      .then(
+        (result) => {
+          setSuccess(true);
+          console.log("Email Sent");
+          
+          form.current.reset();
+        },
+        (error) => {
+          console.error(error.text);
+        }
+      )
+      .finally(() => setLoading(false));
+  };
+
   return (
     <div id="contact" className="py-16">
       <h1 className="relative w-fit bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-4xl font-bold ">
@@ -51,54 +81,44 @@ const Contact = () => {
           <div>
             <p className="text-xl font-semibold mt-6">Connect with me</p>
             <div className="flex items-center gap-6 mt-4 ">
-              <a
-                href="https://github.com/asjadahamed77"
-                target="_blank"
-                rel="noopener noreferrer"
-                className=" bg-slate-50 border border-slate-100 text-xl rounded-full p-2 hover:-translate-y-1 transform duration-300 dark:bg-white/5 dark:border-white/20 dark:hover:bg-white/10 dark:text-white hover:opacity-80"
-              >
+              <a href="https://github.com/asjadahamed77" target="_blank" rel="noopener noreferrer" className=" bg-slate-50 border border-slate-100 text-xl rounded-full p-2 hover:-translate-y-1 transform duration-300 dark:bg-white/5 dark:border-white/20 dark:hover:bg-white/10 dark:text-white hover:opacity-80">
                 <FiGithub />
               </a>
-              <a
-                href="https://www.linkedin.com/in/asjad-ahamed-71941b288"
-                target="_blank"
-                rel="noopener noreferrer"
-                className=" bg-slate-50 border border-slate-100 text-xl rounded-full p-2 hover:-translate-y-1 transform duration-300 dark:bg-white/5 dark:border-white/20 dark:hover:bg-white/10 dark:text-white hover:opacity-80"
-              >
+              <a href="https://www.linkedin.com/in/asjad-ahamed-71941b288" target="_blank" rel="noopener noreferrer" className=" bg-slate-50 border border-slate-100 text-xl rounded-full p-2 hover:-translate-y-1 transform duration-300 dark:bg-white/5 dark:border-white/20 dark:hover:bg-white/10 dark:text-white hover:opacity-80">
                 <FiLinkedin />
               </a>
-              <a
-                href="mailto:ahamedasjad77@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className=" bg-slate-50 border border-slate-100 text-xl rounded-full p-2 hover:-translate-y-1 transform duration-300 dark:bg-white/5 dark:border-white/20 dark:hover:bg-white/10 dark:text-white hover:opacity-80"
-              >
+              <a href="mailto:ahamedasjad77@gmail.com" target="_blank" rel="noopener noreferrer" className=" bg-slate-50 border border-slate-100 text-xl rounded-full p-2 hover:-translate-y-1 transform duration-300 dark:bg-white/5 dark:border-white/20 dark:hover:bg-white/10 dark:text-white hover:opacity-80">
                 <LuMail />
               </a>
             </div>
           </div>
         </div>
-        <div className="bg-slate-50 border border-slate-200 p-6 rounded-xl h-fit flex-1 shadow dark:bg-white/5 dark:border-white/20">
-        <div className="flex flex-col sm:flex-row gap-4 w-full">
+
+        {/* Email Form */}
+        <form ref={form} onSubmit={sendEmail} className="bg-slate-50 border border-slate-200 p-6 rounded-xl h-fit flex-1 shadow dark:bg-white/5 dark:border-white/20">
+          <div className="flex flex-col sm:flex-row gap-4 w-full">
             <div className="flex-1">
-                <p className="font-medium ">Your Name</p>
-                <input type="text" placeholder="John Doe" className="p-2 w-full mt-1 border border-slate-200 dark:border-slate-500 rounded outline-none focus:ring-2 ring-mainBlueLight" />
+              <p className="font-medium ">Your Name</p>
+              <input name="name" type="text" required placeholder="John Doe" className="p-2 w-full mt-1 border border-slate-200 dark:border-slate-500 rounded outline-none focus:ring-2 ring-mainBlueLight" />
             </div>
             <div className="flex-1">
-                <p className="font-medium ">Your Email</p>
-                <input type="email" placeholder="john@gmail.com" className="p-2 w-full mt-1 border border-slate-200 dark:border-slate-500 rounded outline-none focus:ring-2 ring-mainBlueLight" />
+              <p className="font-medium ">Your Email</p>
+              <input name="email" type="email" required placeholder="john@gmail.com" className="p-2 w-full mt-1 border border-slate-200 dark:border-slate-500 rounded outline-none focus:ring-2 ring-mainBlueLight" />
             </div>
-        </div>
-        <div className="flex-1 mt-4">
-                <p className="font-medium">Subject</p>
-                <input type="text" placeholder="How can I help you?" className="p-2 w-full mt-1 border border-slate-200 dark:border-slate-500 rounded outline-none focus:ring-2 ring-mainBlueLight" />
-            </div>
-            <div className="flex-1 mt-4">
-                <p className="font-medium ">Message</p>
-                <textarea type="text" placeholder="Type your message here..." className="p-2 w-full  mt-1 border border-slate-200 dark:border-slate-500 rounded outline-none focus:ring-2 ring-mainBlueLight min-h-24 resize-none"  />
-            </div>
-            <button className="w-full text-center mt-4 py-2 bg-mainBlueLight text-white dark:text-mainBlueLight dark:bg-white rounded-lg hover:opacity-75 duration-300">Send Message</button>
-        </div>
+          </div>
+          <div className="flex-1 mt-4">
+            <p className="font-medium">Subject</p>
+            <input name="subject" type="text" required placeholder="How can I help you?" className="p-2 w-full mt-1 border border-slate-200 dark:border-slate-500 rounded outline-none focus:ring-2 ring-mainBlueLight" />
+          </div>
+          <div className="flex-1 mt-4">
+            <p className="font-medium ">Message</p>
+            <textarea name="message" required placeholder="Type your message here..." className="p-2 w-full mt-1 border border-slate-200 dark:border-slate-500 rounded outline-none focus:ring-2 ring-mainBlueLight min-h-24 resize-none" />
+          </div>
+          <button type="submit" disabled={loading} className="w-full text-center mt-4 py-2 bg-mainBlueLight text-white dark:text-mainBlueLight dark:bg-white rounded-lg hover:opacity-75 duration-300">
+            {loading ? "Sending..." : "Send Message"}
+          </button>
+          {success && <p className="text-green-500 mt-3 text-sm">Message sent successfully!</p>}
+        </form>
       </div>
     </div>
   );
