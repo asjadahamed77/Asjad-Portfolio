@@ -13,22 +13,80 @@ const Navbar = () => {
   const [resolvedTheme, setResolvedTheme] = useState("light");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const handleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Handle scroll to apply background/blur
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Improved Intersection Observer with better section detection
+  useEffect(() => {
+    const sectionIds = ["home", "about", "projects", "skills", "contact"];
+    let observers = [];
+
+    const handleIntersect = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5, // Reduced threshold for better detection
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        observer.observe(element);
+        observers.push(element);
+      }
+    });
+
+    return () => {
+      observers.forEach((element) => {
+        if (element) observer.unobserve(element);
+      });
+    };
+  }, []);
+
+  // Fallback scroll detection for sections that might not trigger IntersectionObserver
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+      const sections = ["home", "about", "projects", "skills", "contact"];
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle theme
   useEffect(() => {
     const applyTheme = (mode) => {
       setResolvedTheme(mode);
@@ -79,54 +137,58 @@ const Navbar = () => {
   };
 
   return (
-    <motion.div 
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.4 }}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
     >
-      {/* Navbar */}
       <motion.div
-      initial={{ y: 15, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{
-        type: "spring",
-        stiffness: 60,
-        damping: 12,
-        duration: 0.4,
-      }}
-      
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center  justify-between py-4 px-4 sm:px-8 xl:px-32 transition-all duration-300 ${
+        initial={{ y: 15, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 60, damping: 12, duration: 0.4 }}
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-4 px-4 sm:px-8 xl:px-32 transition-all duration-300 ${
           isScrolled
             ? "bg-white/70 dark:bg-[#0F172A]/80 backdrop-blur-md"
             : "bg-transparent"
         }`}
       >
-        {/* Logo */}
-        <h1  onClick={() => window.scrollTo(0, 0)}  
-  className="bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-2xl font-bold cursor-pointer">
+        <h1
+          onClick={() => {
+            window.scrollTo(0, 0);
+            setActiveSection("home");
+          }}
+          className="bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-2xl font-bold cursor-pointer"
+        >
           AA.
         </h1>
 
-        {/* Desktop Nav + Theme Switcher + Resume + Mobile Icon */}
         <div className="text-mainBlueLight dark:text-slate-50 text-sm flex items-center gap-8">
-          <div  className="hidden sm:flex items-center space-x-8">
+          <div className="hidden sm:flex items-center space-x-8">
             {["home", "about", "projects", "skills", "contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
-                className="relative group inline-block"
+                className={`relative group inline-block ${
+                  activeSection === item ? "font-semibold" : ""
+                }`}
+                onClick={() => setActiveSection(item)}
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
-                <span className="absolute right-0 -bottom-1 h-1 rounded-full w-0 bg-mainBlueLight dark:bg-slate-50 transition-all duration-300 group-hover:w-2/3"></span>
+                <span
+                  className={`absolute right-0 -bottom-1 h-1 rounded-full transition-all duration-300 ${
+                    activeSection === item
+                      ? "w-2/3 bg-mainBlueLight dark:bg-slate-50"
+                      : "w-0 group-hover:w-2/3 bg-mainBlueLight dark:bg-slate-50"
+                  }`}
+                ></span>
               </a>
             ))}
           </div>
 
           <div className="flex items-center gap-4">
-            {/* Theme switcher */}
             <div
-              className={`flex items-center  p-1 text-base rounded-full ${
+              className={`flex items-center p-1 text-base rounded-full ${
                 resolvedTheme === "dark"
                   ? "bg-white/5 border border-white/30 text-white"
                   : "bg-slate-50 border border-slate-100"
@@ -166,7 +228,6 @@ const Navbar = () => {
               </p>
             </div>
 
-            {/* Mobile menu icon */}
             <p
               onClick={handleMobileMenu}
               className="sm:hidden text-mainBlueLight dark:text-slate-50 text-2xl cursor-pointer"
@@ -175,7 +236,6 @@ const Navbar = () => {
             </p>
           </div>
 
-          {/* Resume button */}
           <a
             href="/Asjad-Ahamed-Resume.pdf"
             download
@@ -186,7 +246,6 @@ const Navbar = () => {
         </div>
       </motion.div>
 
-      {/* Mobile Menu */}
       <div
         className={`fixed top-0 bottom-0 right-0 left-0 z-[100] sm:hidden bg-white/40 dark:bg-mainBlueLight/40 dark:text-white backdrop-blur-sm transition-transform duration-300 ease-linear ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -200,8 +259,13 @@ const Navbar = () => {
             <a
               key={item}
               href={`#${item}`}
-              onClick={handleMobileMenu}
-              className="font-semibold text-xl"
+              onClick={() => {
+                handleMobileMenu();
+                setActiveSection(item);
+              }}
+              className={`font-semibold text-xl ${
+                activeSection === item ? "text-mainBlueLight dark:text-white" : ""
+              }`}
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </a>
@@ -215,8 +279,6 @@ const Navbar = () => {
           </a>
         </div>
       </div>
-
-     
     </motion.div>
   );
 };

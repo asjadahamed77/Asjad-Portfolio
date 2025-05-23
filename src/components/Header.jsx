@@ -2,13 +2,13 @@ import React from "react";
 import { FiGithub } from "react-icons/fi";
 import { FiLinkedin } from "react-icons/fi";
 import { LuMail } from "react-icons/lu";
-import profile from '../assets/profile.png'
+import profile from "../assets/profile.png";
 import { motion } from "framer-motion";
 
 const Header = () => {
   return (
-    <motion.div 
-      id="home" 
+    <motion.div
+      id="home"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: false }}
@@ -85,7 +85,11 @@ const Header = () => {
         transition={{ duration: 0.8 }}
         className="max-w-[400px] h-auto bg-mainBlueLight/20 rounded-[40px]"
       >
-        <img src={profile} alt="Profile Image" className="w-full h-full object-cover" />
+        <img
+          src={profile}
+          alt="Profile Image"
+          className="w-full h-full object-cover"
+        />
       </motion.div>
     </motion.div>
   );
