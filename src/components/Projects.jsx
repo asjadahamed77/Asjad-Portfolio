@@ -16,7 +16,7 @@ const Projects = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: false }}
       transition={{ duration: 0.8 }}
-      className="pt-28"
+      className="scroll-mt-20 pt-28"
     >
       <motion.h1
         initial={{ y: -80, opacity: 0 }}
