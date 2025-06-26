@@ -76,12 +76,16 @@ const Contact = () => {
             <p>
               <HiOutlineMail className="text-2xl" />
             </p>
-            <div>
+            <a
+            href="mailto:ahamedasjad77@gmail.com"
+            >
               <p className="font-semibold text-lg">Email</p>
               <p className="text-secondBlueLight  dark:text-slate-400">ahamedasjad77@gmail.com</p>
-            </div>
+            </a>
           </div>
-          <div className="mt-4 flex gap-4">
+          <a
+          href="tel:+94761257751"
+          className="mt-4 flex gap-4">
             <p>
               <FiPhone className="text-2xl" />
             </p>
@@ -89,7 +93,7 @@ const Contact = () => {
               <p className="font-semibold text-lg">Phone</p>
               <p className="text-secondBlueLight  dark:text-slate-400">+94 76 125 7751</p>
             </div>
-          </div>
+          </a>
           <div className="mt-4 flex gap-4">
             <p>
               <IoLocationOutline className="text-2xl" />
@@ -125,11 +129,11 @@ const Contact = () => {
           <div className="flex flex-col sm:flex-row gap-4 w-full">
             <div className="flex-1">
               <p className="font-medium ">Your Name</p>
-              <input name="name" type="text" required placeholder="John Doe" className="p-2 w-full mt-1 border border-slate-200 dark:border-slate-500 rounded outline-none focus:ring-2 ring-mainBlueLight" />
+              <input name="name" type="text" required placeholder="e.g. Asjad Ahamed" className="p-2 w-full mt-1 border border-slate-200 dark:border-slate-500 rounded outline-none focus:ring-2 ring-mainBlueLight" />
             </div>
             <div className="flex-1">
               <p className="font-medium ">Your Email</p>
-              <input name="email" type="email" required placeholder="john@gmail.com" className="p-2 w-full mt-1 border border-slate-200 dark:border-slate-500 rounded outline-none focus:ring-2 ring-mainBlueLight" />
+              <input name="email" type="email" required placeholder="e.g. ajji@example.com" className="p-2 w-full mt-1 border border-slate-200 dark:border-slate-500 rounded outline-none focus:ring-2 ring-mainBlueLight" />
             </div>
           </div>
           <div className="flex-1 mt-4">
