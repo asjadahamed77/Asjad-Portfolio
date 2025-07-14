@@ -157,7 +157,7 @@ const Navbar = () => {
         }}
         className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-4 px-4 sm:px-8 xl:px-32 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/70 dark:bg-[#0F172A]/80 backdrop-blur-md"
+            ? " dark:backdrop-blur-3xl backdrop-blur-3xl"
             : "bg-transparent"
         }`}
       >
@@ -172,12 +172,12 @@ const Navbar = () => {
         </h1>
 
       
-          <div className="hidden sm:flex items-center space-x-8 rounded-full backdrop-blur-[200px]  shadow  p-4 px-8">
+          <div className="hidden sm:flex items-center space-x-8 rounded-full backdrop-blur-[600px]  shadow  p-4 px-8">
             {["home", "about", "projects", "skills", "contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
-                className={`relative group inline-block ${
+                className={`hover:scale-180 hover:px-8 duration-300 transition-all inline-block ${
                   activeSection === item ? "font-semibold" : ""
                 }`}
                 onClick={() => setActiveSection(item)}
@@ -260,7 +260,7 @@ const Navbar = () => {
                 handleMobileMenu();
                 setActiveSection(item);
               }}
-              className={`font-semibold text-xl ${
+              className={`font-semibold  text-xl ${
                 activeSection === item
                   ? "text-mainBlueLight dark:text-white"
                   : ""

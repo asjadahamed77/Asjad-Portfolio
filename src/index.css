@@ -5,13 +5,14 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme{
-  --color-mainBlueLight: #222831;
-  --color-secondBlueLight: #393E46;
+  --color-mainBlueLight: #090040;
+  --color-secondBlueLight: #090080;
 }
 
 @layer utilities {
   .dark body {
-    background: linear-gradient(to right, #040613, #050714);
+    background: linear-gradient(to right, #000000, #000009 );
+    color: white;
   }
 
   body {
@@ -48,36 +49,21 @@ html {
   box-shadow: 0 0 100px #f43f5e;
 }
 
-.cursor-ring {
-  position: fixed;
-  top: 25px;
-  left: 25px;
-  width: 36px;
-  height: 36px;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(135deg, #f43f5e, #f97316, #eab308);
-  background-size: 200% 200%;
-  animation: gradientShift 5s linear infinite;
-  mix-blend-mode: difference;
-  opacity: 0.7;
-}
+
 .cursor-trail {
   position: fixed;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+ 
+  width: 100px;
+  height: 100px;
+  border-radius: 40%;
   pointer-events: none;
   z-index: 9998;
   background: linear-gradient(135deg, #f43f5e, #f97316, #eab308, #10b981, #3b82f6, #8b5cf6, #ec4899);
   background-size: 400% 400%;
-  animation: trailGradient 2s linear infinite, fadeOut 1s ease forwards;
+  animation: trailGradient 0.5s linear infinite, fadeOut 0.5s ease forwards;
   transform: translate(-50%, -50%);
   mix-blend-mode: screen;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 @keyframes trailGradient {

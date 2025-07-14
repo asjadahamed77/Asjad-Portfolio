@@ -22,16 +22,16 @@ const Header = () => {
         transition={{ duration: 0.8 }}
         className="max-w-[500px] text-center md:text-left pt-12 sm:pt-0"
       >
-        <p className="text-secondBlueLight font-medium dark:text-slate-100">
+        <p className="text-secondBlueLight font-medium dark:text-slate-100 animate-text-enter ">
           Hello! I'm
         </p>
-        <h1 className="lg:text-6xl text-4xl text-mainBlueLight mt-4 font-bold dark:text-white">
-          Asjad <span className="text-secondBlueLight">Ahamed</span>
+        <h1 className="lg:text-6xl text-4xl text-mainBlueLight mt-4 font-bold dark:text-white typing-effect">
+          Asjad <span className="">Ahamed</span>
         </h1>
-        <p className="mt-4 text-mainBlueLight/80 dark:text-slate-200  text-lg">
+        <p className="mt-4 text-mainBlueLight/80 dark:text-slate-200  text-lg animate-text-enter">
         Software Engineer | Full Stack Developer | MERN & Spring Boot | Building Scalable Web Apps with Clean Code & Cloud Integrations
         </p>
-        <p className="mt-4 text-mainBlueLight/80 dark:text-slate-300">
+        <p className="mt-4 text-mainBlueLight/80 dark:text-slate-300 typing-effect">
           Building elegant solutions to complex problems with modern
           technologies.
         </p>

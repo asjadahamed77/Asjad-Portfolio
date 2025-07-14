@@ -26,7 +26,7 @@ const Projects = () => {
         className="relative w-fit bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-4xl font-bold "
       >
         Projects
-        <span className="absolute -bottom-1 left-0 h-1 rounded-full bg-secondBlueLight w-2/5"></span>
+        <span className="absolute -bottom-1 left-0 h-1 rounded-full bg-secondBlueLight dark:bg-white w-2/5"></span>
       </motion.h1>
 
       <motion.div
@@ -75,7 +75,7 @@ const Projects = () => {
                     href={item.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-xl cursor-pointer border border-slate-200 hover:text-white hover:bg-mainBlueLight duration-300 transition-colors dark:text-white dark:bg-mainBlueLight dark:hover:opacity-75 dark:border-white/10"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-xl cursor-pointer border border-slate-200 hover:text-white hover:bg-mainBlueLight duration-300 transition-colors dark:text-mainBlueLight dark:hover:opacity-75 dark:border-white/10"
                   >
                     <span>
                       <FiExternalLink />
@@ -88,7 +88,7 @@ const Projects = () => {
                     href={item.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-xl cursor-pointer border border-slate-200  hover:text-white hover:bg-mainBlueLight duration-300 transition-colors  dark:text-white dark:bg-mainBlueLight dark:hover:opacity-75 dark:border-white/10"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-xl cursor-pointer border border-slate-200  hover:text-white hover:bg-mainBlueLight duration-300 transition-colors  text-mainBlueLight dark:hover:opacity-75 dark:border-white/10"
                   >
                     <span>
                       <FiGithub />
