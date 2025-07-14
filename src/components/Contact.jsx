@@ -50,7 +50,7 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
       className="relative w-fit bg-clip-text text-transparent bg-gradient-to-b from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 text-4xl font-bold ">
         Get in Touch
-        <span className="absolute -bottom-1 left-0 h-1 rounded-full bg-secondBlueLight w-2/5"></span>
+        <span className="absolute -bottom-1 left-0 h-1 rounded-full bg-secondBlueLight dark:bg-white w-2/5"></span>
       </motion.h1>
       <motion.p
           initial={{ y: -80, opacity: 0 }}
