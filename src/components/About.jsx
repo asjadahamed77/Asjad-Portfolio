@@ -39,12 +39,7 @@ const About = () => {
               </span>
             </p>
             <p className="mt-2 font-normal text-sm sm:text-base">
-              I'm a Full Stack Software Engineer with expertise in the MERN
-              stack (MongoDB, Express.js, React, Node.js). I build responsive,
-              user-friendly web apps using Tailwind CSS, Framer Motion, and
-              Redux. I follow best practices with Git and GitHub, and I care
-              deeply about clean UI/UX. I'm also experienced with Next.js for
-              building fast, scalable applications.
+            I'm a Full Stack Software Engineer with expertise in the MERN stack (MongoDB, Express.js, React, Node.js) and Spring Boot for robust backend development. I build responsive, user-friendly web apps using Tailwind CSS, Framer Motion, and Redux. I follow best practices with Git and GitHub, and I care deeply about clean UI/UX. I'm also experienced with Next.js for building fast, scalable applications, and use MySQL alongside other databases to manage structured data efficiently.
             </p>
           </motion.div>
           <motion.div
