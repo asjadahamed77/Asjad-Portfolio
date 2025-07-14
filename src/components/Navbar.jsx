@@ -75,7 +75,10 @@ const Navbar = () => {
           const offsetTop = element.offsetTop;
           const offsetHeight = element.offsetHeight;
 
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
             setActiveSection(section);
             break;
           }
@@ -146,7 +149,12 @@ const Navbar = () => {
       <motion.div
         initial={{ y: 15, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 60, damping: 12, duration: 0.4 }}
+        transition={{
+          type: "spring",
+          stiffness: 60,
+          damping: 12,
+          duration: 0.4,
+        }}
         className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-4 px-4 sm:px-8 xl:px-32 transition-all duration-300 ${
           isScrolled
             ? "bg-white/70 dark:bg-[#0F172A]/80 backdrop-blur-md"
@@ -163,8 +171,8 @@ const Navbar = () => {
           AA.
         </h1>
 
-        <div className="text-mainBlueLight dark:text-slate-50 text-sm flex items-center gap-8">
-          <div className="hidden sm:flex items-center space-x-8">
+      
+          <div className="hidden sm:flex items-center space-x-8 rounded-full backdrop-blur-[200px]  shadow  p-4 px-8">
             {["home", "about", "projects", "skills", "contact"].map((item) => (
               <a
                 key={item}
@@ -175,18 +183,13 @@ const Navbar = () => {
                 onClick={() => setActiveSection(item)}
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
-                <span
-                  className={`absolute right-0 -bottom-1 h-1 rounded-full transition-all duration-300 ${
-                    activeSection === item
-                      ? "w-2/3 bg-mainBlueLight dark:bg-slate-50"
-                      : "w-0 group-hover:w-2/3 bg-mainBlueLight dark:bg-slate-50"
-                  }`}
-                ></span>
+                
               </a>
             ))}
           </div>
 
-          <div className="flex items-center gap-4">
+       
+        <div className="flex items-center gap-4">
             <div
               className={`flex items-center p-1 text-base rounded-full ${
                 resolvedTheme === "dark"
@@ -236,14 +239,8 @@ const Navbar = () => {
             </p>
           </div>
 
-          <a
-            href="/Asjad-Ahamed-Resume.pdf"
-            download
-            className="hidden sm:block font-medium bg-gradient-to-r from-mainBlueLight to-secondBlueLight dark:from-slate-50 dark:to-slate-200 dark:text-mainBlueLight text-white px-4 py-2 rounded-full cursor-pointer hover:opacity-90"
-          >
-            My resume
-          </a>
-        </div>
+        
+
       </motion.div>
 
       <div
@@ -264,7 +261,9 @@ const Navbar = () => {
                 setActiveSection(item);
               }}
               className={`font-semibold text-xl ${
-                activeSection === item ? "text-mainBlueLight dark:text-white" : ""
+                activeSection === item
+                  ? "text-mainBlueLight dark:text-white"
+                  : ""
               }`}
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}

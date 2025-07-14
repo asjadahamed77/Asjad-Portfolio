@@ -28,8 +28,8 @@ const Header = () => {
         <h1 className="lg:text-6xl text-4xl text-mainBlueLight mt-4 font-bold dark:text-white">
           Asjad <span className="text-secondBlueLight">Ahamed</span>
         </h1>
-        <p className="mt-4 text-mainBlueLight/80 dark:text-slate-200 lg:text-xl text-lg">
-          Software Engineer | MERN Stack Developer | Next.js Enthusiast
+        <p className="mt-4 text-mainBlueLight/80 dark:text-slate-200  text-lg">
+        Software Engineer | Full Stack Developer | MERN & Spring Boot | Building Scalable Web Apps with Clean Code & Cloud Integrations
         </p>
         <p className="mt-4 text-mainBlueLight/80 dark:text-slate-300">
           Building elegant solutions to complex problems with modern

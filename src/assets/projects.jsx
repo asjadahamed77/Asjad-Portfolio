@@ -325,6 +325,12 @@ export const skills = [
             {
                 skill: "Express.js",
             },
+            {
+                skill: "Spring Framework",
+            },
+            {
+                skill: "Spring Boot",
+            },
            
         ],
         icon: <IoCode />
